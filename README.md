@@ -1,1 +1,2 @@
-# EXE_PracticalTest02
+Teodora Stan 341C2
+
