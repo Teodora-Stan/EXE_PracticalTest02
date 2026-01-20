@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">EXE_practicaltest02</string>
+        <string-array name="information_types">
+            <item>all</item>
+            <item>temperature</item>
+            <item>wind_speed</item>
+            <item>condition</item>
+            <item>pressure</item>
+            <item>humidity</item>
+        </string-array>
 </resources>

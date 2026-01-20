@@ -1,19 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<!-- Schimbăm rădăcina în LinearLayout VERTICAL -> Le așază automat unul sub altul -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EXE_PracticalTest02MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:paddingTop="150dp"
+    android:id="@+id/main">
+
+    <!-- === 1. ZONA SERVER === -->
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#c7b3f2"
+        android:orientation="vertical"
+        android:layout_marginBottom="50dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="SERVER CONFIG"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Portul și Butonul pe orizontală -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/serverPortEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Port Server"
+            android:text="5000"
+            android:inputType="number"/>
+
+        <Button
+            android:id="@+id/connectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"/>
+    </LinearLayout>
+    </LinearLayout>
+
+
+    <!-- === 2. ZONA CLIENT === -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLIENT CONFIG"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:id="@+id/clientAddressEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Adresa Server (localhost)"
+        android:text="localhost"/>
+
+    <EditText
+        android:id="@+id/clientPortEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Port Client"
+        android:text="5000"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/cityEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Oras (ex: Bucharest)"/>
+
+    <!-- Lista derulantă (Spinner) -->
+    <Spinner
+        android:id="@+id/infoTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/information_types"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <Button
+        android:id="@+id/getWeatherButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cere Prognoza"/>
+
+    <!-- === 3. ZONA REZULTAT (ScrollView corect) === -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="REZULTAT:"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Aici va apărea textul cu vremea -->
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aici vor apărea datele..."
+            android:textSize="16sp"/>
+    </ScrollView>
+
+</LinearLayout>
